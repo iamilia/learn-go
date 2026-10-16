@@ -12,6 +12,7 @@ My first steps with Go. I already work with TypeScript, Node.js and Lua, and thi
 | 04 | [Slices & maps](04-slices-maps/main.go) | `[]int`, `append`, `range`, `map[string]int`, the zero-value counting trick |
 | 05 | [Structs & methods](05-structs/main.go) | `type ... struct`, methods, pointer vs value receivers, exported vs unexported names, early return |
 | 06 | [Pointers](06-pointers/main.go) | `&` / `*`, passing by address, `swap`, constructor functions, `[]*Player`, `nil` |
+| 07 | [Interfaces](07-interfaces/main.go) | implicit interfaces, polymorphism, `fmt.Stringer`, type switch, method sets |
 
 ## Run a lesson
 
@@ -22,6 +23,7 @@ go run ./03-functions
 go run ./04-slices-maps
 go run ./05-structs
 go run ./06-pointers
+go run ./07-interfaces
 ```
 
 ## Things that surprised me coming from TS / Lua
@@ -36,3 +38,4 @@ go run ./06-pointers
 - Go passes everything by value, so methods that modify a struct need a pointer receiver (`*Player`).
 - No `public` / `private` keywords: a capital first letter means exported.
 - `for _, p := range []Player` gives you copies; use `[]*Player` when the loop must change each item.
+- Interfaces are satisfied implicitly. A method with a `*T` receiver only belongs to `*T`, so `fmt.Println(T{})` silently skips a `*T` `String()` method.

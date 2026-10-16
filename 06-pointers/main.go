@@ -73,7 +73,7 @@ func main() {
 	players := []*Player{
 		newPlayer("Ilia"),
 		newPlayer("John"),
-		newPlayer("Sara"),
+		newPlayer("Mobina"),
 	}
 
 	damagePlayers(players, 30)
