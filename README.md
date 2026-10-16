@@ -11,6 +11,7 @@ My first steps with Go. I already work with TypeScript, Node.js and Lua, and thi
 | 03 | [Functions](03-functions/main.go) | parameters, multiple return values, named returns, `strconv.Itoa` |
 | 04 | [Slices & maps](04-slices-maps/main.go) | `[]int`, `append`, `range`, `map[string]int`, the zero-value counting trick |
 | 05 | [Structs & methods](05-structs/main.go) | `type ... struct`, methods, pointer vs value receivers, exported vs unexported names, early return |
+| 06 | [Pointers](06-pointers/main.go) | `&` / `*`, passing by address, `swap`, constructor functions, `[]*Player`, `nil` |
 
 ## Run a lesson
 
@@ -20,6 +21,7 @@ go run ./02-control-flow
 go run ./03-functions
 go run ./04-slices-maps
 go run ./05-structs
+go run ./06-pointers
 ```
 
 ## Things that surprised me coming from TS / Lua
@@ -33,3 +35,4 @@ go run ./05-structs
 - `string(65)` is `"A"`, not `"65"`. Use `strconv.Itoa`.
 - Go passes everything by value, so methods that modify a struct need a pointer receiver (`*Player`).
 - No `public` / `private` keywords: a capital first letter means exported.
+- `for _, p := range []Player` gives you copies; use `[]*Player` when the loop must change each item.
